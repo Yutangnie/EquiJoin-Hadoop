@@ -12,7 +12,7 @@ Design a new class called JoinReducer which extends Reducer and specify the clas
 # Useful note 
 how to create jar file?
 Use command "jar -cvf equijoin.jar *.class" instead of IDE built-in buttons to generate the jar file, before doing so, need to add the hadoop path to the classpath in ".bashrc" so that can complie the "equijoin.java" with classes from apache hadoop. If use IDE created jar, while submit to hadoop, no need to explicitly indicate the main class name, "equijoin here". But with jar command, the "equijoin" class name is necenessary. The following two lines should be in ".bashrc": 
- # for hadoop
+For hadoop
 export HADOOP_HOME=/usr/local/hadoop
 export CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath):$CLASSPATH
 
