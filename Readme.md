@@ -5,9 +5,9 @@ The input is only one file with both R and S relations in it. The second column 
 # Driver class
 All the configuration about hadoop are set here, including where the input comes from and where the output goes to, what is the input format of mapper and the output format of reducer, as well as the output key and value format for both mapper and reducer. Note here since both the mapper and reducer output the same format of key and value, explicitly indicate the mapper key and value output class is unnecessary. 
 # Mapper class
-Design a new class called JoinMapper which extends Mapper and specify the class type of KeyIn, ValueIn, KeyOut and ValueOut, override the map function. Inside the map function, extract the join key from each input (ValueIn here) and then write out with the key and the whole input value.
+Design a new class called JoinMapper which extends Mapper and specify the class type of KeyIn, ValueIn, KeyOut and ValueOut, override the map function. Inside the map function, extract the join key from each input (second term in ValueIn here) and then write out with the key and the whole input value. In addition, use two static variables tableName1 and tableName2 to record the two tables that are joining.
 # Reducer class
-Design a new class called JoinReducer which extends Reducer and specify the class type, then override the reduce function. Inside reduce function, first iterate the input value to get all the inputs and stores in a list. Then traverse the list to join each two of them with the same key with condition that they are not coming from the same R or S table.
+Design a new class called JoinReducer which extends Reducer and specify the class type, then override the reduce function. Inside reduce function, first iterate the input value to get all the inputs and store them in corresponding list of table1 and table2 by comparing the first term in each value with the tableName1 and tableName2 that were assigned in Mapper class. Then traverse the list to join each one in the first table list with each in second list and write out to file.
 
 # Useful note 
 how to create jar file?
